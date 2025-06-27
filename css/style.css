@@ -1,0 +1,578 @@
+/* BASE STYLES */
+body,
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000; /* Consider using a CSS variable for primary text color */
+}
+
+/* Ensure consistent box-sizing across all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+h3.display-4 {
+  line-height: 1.6;
+  margin-top: 0; /* Bootstrap often adds top margin, ensure consistency */
+  margin-bottom: 0.5rem; /* A common value for spacing below headings */
+}
+
+/* Specific styling for Bootstrap's .display-4 when used as h3 */
+h3.display-4 {
+  color: #000;
+  font-size: 30px; /* Overrides Bootstrap's default display-4 font-size for h3 */
+  font-weight: 700;
+  padding-bottom: 10px;
+  /* Consider if this text-align should be explicitly set or allowed to inherit */
+}
+
+/* General paragraph styling */
+p {
+  text-align: justify; /* Justify text for a clean block look */
+  /* display: inline-block; - This can be problematic for paragraphs, usually remove */
+  color: #000400; /* This hex code is likely a typo. #000400 is very dark blue-green, use #000000 or a lighter shade if black is intended */
+  font-size: 16px;
+  margin-bottom: 1rem; /* Add some bottom margin for spacing between paragraphs */
+}
+
+/* General h3 styling (overrides display-4 h3 if both apply) */
+h3 {
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* GLOBAL UTILITIES (Removed redundant selector-for-some-widget, as * handles box-sizing) */
+
+/* NAVBAR + HEADER STYLES */
+.jumbotron-image-home,
+.jumbotron-image-attractions,
+.jumbotron-image-history,
+.jumbotron-image-events,
+.jumbotron-image-contact {
+  height: 50vh; /* Use viewport height for better responsiveness across devices */
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat; /* Changed 'space' to 'no-repeat' for cover effect */
+  background-size: cover;
+  position: relative;
+  border-radius: 0;
+  margin-bottom: 0; /* Ensure no extra space below jumbotron */
+}
+
+.jumbotron-image-home {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/home-cover.jpg");
+}
+
+.jumbotron-image-attractions {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/attractions-cover.jpg");
+}
+
+.jumbotron-image-history {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/history-cover.jpg");
+}
+
+.jumbotron-image-events {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/event-cover.jpg");
+}
+
+.jumbotron-image-contact {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/contact-cover.jpg");
+}
+
+.jumbotron-text {
+  font-size: 28px;
+  font-weight: 700;
+  /* display: contents; - This can remove the element from the layout flow, usually undesirable */
+  text-align: center; /* Centering the text within the jumbotron */
+  position: absolute;
+  color: white;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for element's own size */
+  width: 100%; /* Ensure it spans the width for text-align */
+  padding: 0 15px; /* Add some horizontal padding */
+}
+
+/* Apply to direct children for consistent white text, remove from jumbotron-text */
+.jumbotron-text h1,
+.jumbotron-text p {
+  color: white;
+  text-align: center; /* Inherit text-align from parent */
+  margin-bottom: 0; /* Remove default margins from h1/p inside jumbotron-text */
+}
+
+/* HOME PAGE STYLES */
+#home h4 {
+  font-weight: 700;
+  font-size: 26px;
+  padding-bottom: 8px;
+  margin-top: 1rem; /* Add some top margin for spacing */
+}
+
+/* slider header*/
+#showcase h4 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  padding-bottom: 15px;
+  margin-top: 2rem; /* Add some top margin for spacing */
+}
+
+/* ATTRACTIONS & LOCATIONS STYLES */
+/* Specific selector for h3.display-4 within #attractions */
+div#attractions h3.display-4 {
+  padding-bottom: 10px;
+  font-weight: 700; /* Already defined for h3.display-4, can be removed if consistent */
+  text-align: center; /* Ensure it's centered */
+}
+
+div#attractions p.sub-heading {
+  font-size: 24px;
+  text-align: center;
+  border-bottom: 2px solid black;
+  padding-bottom: 10px; /* Ensure padding is applied as it was for h3 */
+  margin-bottom: 1.5rem; /* Add more space below the sub-heading */
+}
+
+.card {
+  /* margin: 0 auto; - Removed this, Bootstrap columns handle spacing.
+     flex: content; - This is not a valid CSS flex value. */
+  margin-bottom: 10px; /* Use Bootstrap spacing utilities (mb-2, mb-3, mb-4) in HTML for consistency */
+  margin-top: 10px; /* Use Bootstrap spacing utilities (mt-2, mt-3, mt-4) in HTML for consistency */
+}
+
+h2.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5rem; /* Add padding for better visual separation */
+  margin-bottom: 0.5rem; /* Add margin below title */
+}
+
+p.card-text {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: left; /* Text align left within card */
+  /* Ensure this overrides general p if needed */
+}
+
+div#locations {
+  border-top: 2px solid black;
+  padding-top: 1.5rem; /* Add padding above content */
+  margin-top: 1.5rem; /* Add margin for separation from previous section */
+}
+
+iframe {
+  border: 3px solid; /* This will default to black border. Consider specifying color. */
+  width: 100%; /* Make iframes responsive */
+  height: 450px; /* Set a default height, adjust as needed */
+  display: block; /* Ensure it takes full width and breaks line */
+  margin-bottom: 1rem; /* Add spacing below iframe */
+}
+
+/* HISTORY STYLES*/
+.line,
+.line-1 {
+  background-color: #000;
+  height: 1px;
+  margin-top: -10px; /* Adjusted if margin-bottom added to previous p/h3 */
+  margin-bottom: 1rem; /* Consistent spacing below lines */
+}
+
+.line-1 {
+  margin-top: 0; /* Override for line-1 if needed, or refine combined selector */
+}
+
+#history .lead {
+  text-align: center;
+  margin-bottom: 1rem; /* Ensure spacing below lead text */
+}
+
+.history-text-title {
+  /* margin-top: -10px; - Potentially problematic with previous element's margin-bottom */
+  margin-bottom: 0.5rem; /* Consistent spacing below titles */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  font-weight: 700; /* Applied already with style="font-weight: 700" in HTML, but good to have in CSS */
+}
+
+.history-text {
+  text-align: justify;
+  color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 5px; /* Adjust if previous element's margin-bottom changes */
+  font-size: 16px;
+  margin-bottom: 1rem; /* Consistent spacing for paragraphs */
+}
+
+/* treaty of waitangi image flip effect */
+.flip-box {
+  background-color: transparent;
+  width: 350px; /* Fixed width might not be responsive */
+  height: 400px; /* Fixed height might not be responsive */
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  margin: 1rem auto; /* Center the flip-box and add vertical margin */
+  max-width: 100%; /* Ensure it doesn't overflow on small screens */
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex; /* Use flexbox to center content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  padding: 15px; /* Add some padding inside the flip box */
+  box-sizing: border-box; /* Ensure padding doesn't affect total width/height */
+}
+
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-box-back {
+  background-color: #555;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* EVENT STYLES */
+#events td {
+  padding-top: 15px;
+  padding-bottom: 15px; /* Add bottom padding for better spacing */
+  vertical-align: middle; /* Vertically align content in table cells */
+}
+
+/* CONTACT STYLES */
+/* form */
+#contact form {
+  margin-top: 25px;
+  /* transition: all 3s ease-in-out; - A 3-second transition on margin-top might be too long and jarring */
+}
+
+#contact .form-control {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid gray;
+  color: blue; /* Consider contrast for accessibility, blue on transparent might be hard to read */
+  font-size: 18px;
+  margin-bottom: 16px;
+  padding-left: 0; /* Remove default padding from Bootstrap to align with border */
+  padding-right: 0;
+}
+
+#contact input {
+  height: 45px;
+}
+
+#contact textarea {
+  min-height: 120px; /* Ensure textarea has a minimum height */
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+
+#contact form .submit {
+  background: lightblue;
+  border-color: transparent;
+  color: gray; /* Ensure good contrast */
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  height: 50px;
+  margin-top: 20px;
+  cursor: pointer; /* Indicate it's clickable */
+}
+
+#contact form .submit:hover {
+  background-color: lightgreen;
+}
+
+/* FOOTER */
+.page-footer {
+  /* position: relative; - Often set to fixed or sticky-bottom if needed to always be at bottom of viewport.
+     If relative, it will just flow normally. */
+  margin-top: 2rem; /* Add more margin for separation from content */
+  bottom: 0; /* 'bottom: 0' has no effect with 'position: relative' */
+  width: 100%;
+}
+
+/* RESPONSIVE DESIGN FOR TABLES (from events.html specific media query) */
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+@media only screen and (max-width: 767.98px) { /* Changed to Bootstrap's 'sm' breakpoint for consistency */
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #dee2e6; /* Add border to rows for separation */
+    margin-bottom: 1rem;
+  }
+
+  tr:nth-child(odd) {
+    background: #f8f9fa; /* Lighter background for odd rows for better contrast */
+  }
+
+  tr:nth-child(even) { /* Add even row styling for complete stripe effect */
+    background: #fff;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #dee2e6; /* Use Bootstrap's border color */
+    position: relative;
+    padding-left: 50%;
+    text-align: right; /* Align content to the right, label to the left */
+    padding-top: 0.75rem; /* Match Bootstrap table padding */
+    padding-bottom: 0.75rem; /* Match Bootstrap table padding */
+  }
+
+  td:last-child {
+    border-bottom: 0; /* Remove bottom border for the last cell in a row */
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 0.75rem; /* Match td padding-top */
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left; /* Align label text to the left */
+    font-weight: bold; /* Make labels bold */
+  }
+
+  /* Label the data */
+  td:nth-of-type(1):before {
+    content: "#";
+  }
+  td:nth-of-type(2):before {
+    content: "Event";
+  }
+  td:nth-of-type(3):before {
+    content: "Date";
+  }
+  td:nth-of-type(4):before {
+    content: "Location";
+  }
+  td:nth-of-type(5):before {
+    content: "Link";
+  }
+}
+
+/* Adjustments for general layout on larger screens or specific elements */
+@media (min-width: 768px) {
+  /* For medium and larger screens, ensure jumbotron-text is correctly positioned */
+  .jumbotron-text {
+    padding-top: 0; /* Reset previous padding if any */
+  }
+}
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text for dark mode */
+}
+
+body.dark-mode .navbar.bg-dark {
+    background-color: #1f1f1f !important; /* Slightly lighter dark for navbar */
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .navbar-brand img {
+    /* Optional: If your logo needs a different look in dark mode, adjust here */
+    filter: brightness(0.8) invert(0.1); /* Example filter to subtly change logo */
+}
+
+body.dark-mode .navbar-nav .nav-link {
+    color: #e0e0e0; /* Light text for nav links */
+}
+
+body.dark-mode .navbar-nav .nav-item.active .nav-link {
+    color: #fff; /* White for active link */
+}
+
+body.dark-mode .jumbotron-text h1,
+body.dark-mode .jumbotron-text p {
+    color: #fff; /* Ensure jumbotron text stays white against the darkened image */
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode p {
+  color: #e0e0e0; /* Light text for general headings and paragraphs */
+}
+
+/* Specific adjustments for elements that had black text */
+body.dark-mode h3.display-4,
+body.dark-mode #home h4,
+body.dark-mode #showcase h4 {
+  color: #e0e0e0;
+}
+
+body.dark-mode p {
+  color: #cccccc; /* Slightly darker light text for paragraphs */
+}
+
+/* Dark mode for attractions cards */
+body.dark-mode .card {
+  background-color: #2c2c2c; /* Dark card background */
+  color: #e0e0e0;
+  border: 1px solid #444; /* Darker border */
+}
+
+body.dark-mode h2.card-title {
+  color: #e0e0e0;
+  border-bottom-color: #444; /* Darker border for card title */
+}
+
+body.dark-mode p.card-text {
+  color: #cccccc;
+}
+
+body.dark-mode .card .btn-dark {
+    background-color: #555 !important;
+    border-color: #555 !important;
+    color: #fff !important;
+}
+
+/* Dark mode for history section lines */
+body.dark-mode .line,
+body.dark-mode .line-1 {
+  background-color: #555; /* Darker line color */
+}
+
+/* Dark mode for flip box in history */
+body.dark-mode .flip-box-front {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+body.dark-mode .flip-box-back {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Dark mode for events table */
+body.dark-mode .table {
+    color: #e0e0e0; /* Table text color */
+}
+
+body.dark-mode .table thead th {
+    border-bottom-color: #444;
+    color: #fff; /* Table header color */
+}
+
+body.dark-mode .table tbody tr {
+    border-color: #3a3a3a; /* Darker borders between rows */
+}
+
+body.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #2c2c2c; /* Darker odd row background */
+}
+
+body.dark-mode .table-striped tbody tr:nth-of-type(even) {
+    background-color: #1f1f1f; /* Even darker even row background */
+}
+
+body.dark-mode .table-hover tbody tr:hover {
+    background-color: #3c3c3c; /* Darker hover effect */
+}
+
+body.dark-mode #events td {
+    border-bottom-color: #3a3a3a; /* Darker bottom border for cells */
+}
+
+body.dark-mode #events td:before {
+    color: #ccc; /* Label color for stacked table cells */
+}
+
+/* Dark mode for contact form */
+body.dark-mode #contact h3 {
+  color: #e0e0e0;
+}
+
+body.dark-mode #contact .form-control {
+  color: #e0e0e0; /* Input text color */
+  border-bottom-color: #555; /* Input border color */
+}
+
+body.dark-mode #contact input::placeholder,
+body.dark-mode #contact textarea::placeholder {
+  color: #999; /* Placeholder text color */
+}
+
+body.dark-mode #contact form .submit {
+  background: #444 !important; /* Darker button background */
+  color: #fff !important; /* White text for button */
+}
+
+body.dark-mode #contact form .submit:hover {
+  background-color: #666 !important; /* Darker hover effect */
+}
+
+/* Dark mode for footer */
+body.dark-mode .page-footer {
+  background-color: #1f1f1f !important; /* Darker footer background */
+  color: #e0e0e0;
+  border-top: 1px solid #333;
+}
+
+body.dark-mode .footer-copyright a {
+  color: #e0e0e0; /* Link color in footer */
+}
+
+/* Alert messages (for contact page success/error) */
+body.dark-mode .alert-success {
+    background-color: #28a745; /* Bootstrap green */
+    color: #fff;
+    border-color: #28a745;
+}
+body.dark-mode .alert-danger {
+    background-color: #dc3545; /* Bootstrap red */
+    color: #fff;
+    border-color: #dc3545;
+}
