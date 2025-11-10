@@ -2,7 +2,7 @@
 body,
 html {
   font-family: Arial, Helvetica, sans-serif;
-  color: #000; /* Consider using a CSS variable for primary text color */
+ /* Consider using a CSS variable for primary text color */
 }
 
 /* Ensure consistent box-sizing across all elements */
@@ -312,6 +312,29 @@ iframe {
   background-color: lightgreen;
 }
 
+/* CSS to visually indicate the input is invalid */
+.form-control.is-invalid {
+    /* Example styling: Red border */
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem); /* Space for a potential icon */
+    background-image: url("data:image/svg+xml;..."); /* Optional error icon */
+}
+
+/* CSS to make the error message visible */
+.invalid-feedback {
+    /* Initially hidden by default unless the framework shows it, but here we enforce the style */
+    display: none; 
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545; /* Red text */
+}
+
+/* When the JavaScript adds the .is-invalid class, the browser shows the feedback */
+.form-control.is-invalid ~ .invalid-feedback {
+    display: block; 
+}
+
 /* FOOTER */
 .page-footer {
   /* position: relative; - Often set to fixed or sticky-bottom if needed to always be at bottom of viewport.
@@ -409,6 +432,8 @@ iframe {
     padding-top: 0; /* Reset previous padding if any */
   }
 }
+
+
 /* Dark Mode Styles */
 body.dark-mode {
   background-color: #121212; /* Dark background */
